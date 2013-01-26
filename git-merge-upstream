@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# git remote add upstream https://github.com/[...]
+
+git fetch upstream
+git merge upstream/master
+
+
+

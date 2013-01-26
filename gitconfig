@@ -1,0 +1,10 @@
+[user]
+	name = Tobias Schulz
+	email = tobias@freehal.net
+[push]
+	default = matching
+[branch]
+	autosetuprebase = always
+[color]
+	status = auto
+	branch = auto
