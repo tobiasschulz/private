@@ -10,4 +10,7 @@ done
 chown root:root $P/home-.bashrc
 chmod u=rwx,g=rx,o=rx $P/home-.bashrc
 
-ln -sf $P/install.sh /usr/local/bin/pull-private
+echo '#!/bin/bash' > /usr/local/bin/pull-private
+echo 'sudo su -c "cd '$P'; ./install.sh"' >> /usr/local/bin/pull-private
+chown root:root /usr/local/bin/pull-private
+chmod u=rwx,g=rx,o=rx /usr/local/bin/pull-private
