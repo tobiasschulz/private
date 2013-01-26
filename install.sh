@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git pull
+
 export P=$(pwd)
 for u in /etc/skel /root /home/*
 do
@@ -7,3 +9,5 @@ do
 done
 chown root:root $P/home-.bashrc
 chmod u=rwx,g=rx,o=rx $P/home-.bashrc
+
+ln -sf $P/install.sh /usr/local/bin/pull-private
