@@ -124,5 +124,5 @@ alias l='ls -CF'
 case ${TERM} in xterm*|rxvt*|Eterm|aterm|kterm|gnome*) PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'; ;; screen) PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/~}"'; ;; esac
 export PS1="$(if [[ ${EUID} == 0 ]]; then if [[ "$HOME" == /root ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;36m\]\h'; fi else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
 
-export PS1="$(if [[ ${EUID} == 0 ]]; then if [[ "$HOME" == /root ]]; then echo '\[\033[00;31m\]\h'; else echo '\[\033[00;36m\]\h'; fi else echo '\[\033[00;32m\]\u\[\033[00;31m\]@\[\033[00;31m\]\h'; fi)\[\033[00;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
+export PS1="$(if [[ ${EUID} == 0 ]]; then if [[ "$HOME" == /root ]]; then echo '\[\033[00;31m\]\h'; else echo '\[\033[00;36m\]\h'; fi else echo '\[\033[00;32m\]\u\[\033[00;31m\]@\[\033[00;31m\]\h'; fi)\[\033[00;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")$(if [[ ${EUID} == 0 ]]; then echo '#'; else echo \$; fi)\[\033[00m\] "
 
